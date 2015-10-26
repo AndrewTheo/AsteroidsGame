@@ -1,15 +1,53 @@
 //your variable declarations here
+SpaceShip a = new SpaceShip();
+
 public void setup() 
 {
   //your code here
+  size(500,500);
 }
 public void draw() 
 {
-  //your code here
+ 
 }
-class SpaceShip //extends Floater  
+class SpaceShip extends Floater  
 {   
+    
     //your code here
+    int myCenterX = 250;
+    int myCenterY = 250;
+    double myDirectionX = 0;
+    double myDirectionY = 0;
+    int myPointDirection = 0;
+    
+    SpaceShip()
+    {
+      
+      
+      corners = 3;
+      xCorners = new int[corners];
+      yCorners = new int[corners];
+      xCorners[0] = -8;
+      yCorners[0] = -8;
+      xCorners[1] = 16;
+      yCorners[1] = 0;
+      xCorners[2] = -8;
+      yCorners[2] = 8;
+      
+
+    }
+
+    public void setX(int x){myCenterX = x;}
+    public int getX(){return x;}
+    public void setY(int y){myCenterY = y;}
+    public int getY() {return y;}
+    public void setDirectionX(double x){myDirectionX = x;}
+    public double getDirectionX() {return x;}
+    public void setDirectionY(double y){ myDirectionY = y;}
+    public double getDirectionY(){return y;}
+    public void setPointDirection(int degrees){myPointDirection = degrees;}
+    public double getPointDirection(){return getPointDirection;}
+    
 }
 abstract class Floater //Do NOT modify the Floater class! Make changes in the SpaceShip class 
 {   
@@ -35,7 +73,7 @@ abstract class Floater //Do NOT modify the Floater class! Make changes in the Sp
   public void accelerate (double dAmount)   
   {          
     //convert the current direction the floater is pointing to radians    
-    double dRadians =myPointDirection*(Math.PI/180);     
+    double dRadians = myPointDirection*(Math.PI/180);     
     //change coordinates of direction of travel    
     myDirectionX += ((dAmount) * Math.cos(dRadians));    
     myDirectionY += ((dAmount) * Math.sin(dRadians));       
