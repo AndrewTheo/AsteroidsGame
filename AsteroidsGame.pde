@@ -8,22 +8,23 @@ public void setup()
 }
 public void draw() 
 {
- 
+ a.show();
 }
 class SpaceShip extends Floater  
 {   
     
     //your code here
-    int myCenterX = 250;
-    int myCenterY = 250;
-    double myDirectionX = 0;
-    double myDirectionY = 0;
-    int myPointDirection = 0;
+//    int myCenterX;
+//    int myCenterY;
+//    double myDirectionX;
+//    double myDirectionY;
+//    int myPointDirection;
+//    int co
     
     SpaceShip()
     {
       
-      
+     
       corners = 3;
       xCorners = new int[corners];
       yCorners = new int[corners];
@@ -34,19 +35,28 @@ class SpaceShip extends Floater
       xCorners[2] = -8;
       yCorners[2] = 8;
       
+      myCenterX = 250;
+      myCenterY = 250;
+      myDirectionX = 0;
+      myDirectionY = 0;
+      myPointDirection = 0;
+      
+      
+      
+
 
     }
 
     public void setX(int x){myCenterX = x;}
-    public int getX(){return x;}
+    public int getX(){return (int)(myCenterX);}
     public void setY(int y){myCenterY = y;}
-    public int getY() {return y;}
+    public int getY() {return (int)(myCenterY);}
     public void setDirectionX(double x){myDirectionX = x;}
-    public double getDirectionX() {return x;}
-    public void setDirectionY(double y){ myDirectionY = y;}
-    public double getDirectionY(){return y;}
+    public double getDirectionX() {return myDirectionX;}
+    public void setDirectionY(double y){myDirectionY = y;}
+    public double getDirectionY(){return myDirectionY;}
     public void setPointDirection(int degrees){myPointDirection = degrees;}
-    public double getPointDirection(){return getPointDirection;}
+    public double getPointDirection(){return myPointDirection;}
     
 }
 abstract class Floater //Do NOT modify the Floater class! Make changes in the SpaceShip class 
@@ -126,3 +136,8 @@ abstract class Floater //Do NOT modify the Floater class! Make changes in the Sp
   }   
 } 
 
+
+public void keyPressed()
+{
+  
+}
