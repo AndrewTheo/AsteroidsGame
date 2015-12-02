@@ -207,14 +207,9 @@ class Stars
 
 }
 
-class Asteroids extends Floater
-{
-  private int rotSpeed;
-  private int dir;
-  
-  public Asteroids()
+ public Asteroids()
   {
-
+  
     corners = 6;
     xCorners = new int[corners];
     yCorners = new int[corners];
@@ -231,58 +226,62 @@ class Asteroids extends Floater
     xCorners[5] = -5;
     yCorners[5] = 0;
 
-
-
     dir = (int)(Math.random()*2);
 
-   // println(dir);
+    if (dir == 0)
+    {
+      setX(50);
+      setY((int)(Math.random()*500));
+    }
 
-
-
+    if (dir == 1)
+    {
+      setX(450);
+      setY((int)(Math.random()*500));
+    }
 
   }
-
-    public void setX(int x){myCenterX = x;}
-    public int getX(){return (int)(myCenterX);}
-    public void setY(int y){myCenterY = y;}
-    public int getY() {return (int)(myCenterY);}
-    public void setDirectionX(double x){myDirectionX = x;}
-    public double getDirectionX() {return myDirectionX;}
-    public void setDirectionY(double y){myDirectionY = y;}
-    public double getDirectionY(){return myDirectionY;}
-    public void setPointDirection(int degrees){myPointDirection = degrees;}
-    public double getPointDirection(){return myPointDirection;}
-
-    //public void setrotSpeed(int rotSpeed){}
 
 
   public void move()
   {
+    b.rotate(2);
     if (dir == 0)
     {
-      b.setX(b.getX()+1);
-      b.setY(b.getY()+0);
+      b.setDirectionX(2);
+      b.setDirectionY(1);
+
     }
     else if (dir == 1)
     {
-      b.setX(b.getX()+1);
-      b.setY(b.getY()+0);
+       b.setDirectionX(-2);
+       b.setDirectionY(-1);
     }
     
-
-
     rotate(rotSpeed);
-    // b.setX(b.getX()+1);
-    // b.setY(b.getY()+0);
 
-    if(b.getX() > 600)
-    {
-       // b.setX(-25);
-       // dir = (int)(Math.random()*2);
-       // b.setY((int)(Math.random()*500)+50);
+    myCenterX += myDirectionX;    
+    myCenterY += myDirectionY;
+
+
+    if(myCenterX >width)
+    {     
+      myCenterX = 0;    
+    }    
+    else if (myCenterX<0)
+    {     
+      myCenterX = width;    
+    }    
+    if(myCenterY >height)
+    {    
+      myCenterY = 0;    
+    }   
+    else if (myCenterY < 0)
+    {     
+      myCenterY = height;    
+    }   
+
       
-    }
-    
   }
 
 }
