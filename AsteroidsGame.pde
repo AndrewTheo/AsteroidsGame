@@ -1,20 +1,25 @@
 SpaceShip a = new SpaceShip();
-Asteroids b = new Asteroids();
+
 
 Stars [] space = new Stars[300];
 
+ArrayList<Asteroids> theList = new ArrayList<Asteroids>();
 
 
 public void setup() 
 {
   //your code here
   size(500,500);
-  b.setX(100);
-  b.setY(250);
+ 
 
   for(int i = 0; i < space.length; i++)
   {
     space[i] = new Stars();
+  }
+  
+  for(int q=0; q < 5; q++)
+  {
+    theList.add(new Asteroids());
   }
 
 }
@@ -29,14 +34,19 @@ public void draw()
   }
 
 
+  for(Asteroids rock : theList)
+  { 
+   rock.show();
+   rock.move();
+   rock.rotate((int)Math.random()*4);
+  }
+
 
  // b.setDirectionX((int)(Math.random()*4-2));
  //  b.setDirectionY((int)(Math.random()*4-2));
   a.show();
   a.move();
-  b.show();
-  b.move();
-  b.rotate(4);
+ 
  
 
 }
