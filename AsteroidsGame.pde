@@ -3,7 +3,6 @@ ArrayList <asteroid> AsteroidNum = new ArrayList <asteroid>();
 SpaceShip Ship1 = new SpaceShip();
 star [] nStar = new star[1000];
 ArrayList <bullet> bullets = new ArrayList <bullet> ();
-//PFont f;
 boolean gameOver = false;
 
 
